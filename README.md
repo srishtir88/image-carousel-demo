@@ -157,10 +157,71 @@ public class ImageCarouselModel {
 - Renders `<img>` tags (with alt text), optionally wraps image in `<a>` if link is present.  
 - Renders caption if provided.  
 - Renders carousel container with Prev/Next buttons and slide indicators.  
+<sly data-sly-use.model="com.myproject.aem.components.imagecarousel.ImageCarouselModel" 
+     data-sly-test="${!model.empty}">
+
+  <div class="my-carousel js-carousel">
+    <ul class="my-carousel__slides">
+      <sly data-sly-list.slide="${model.slides}">
+        <li class="my-carousel__slide">
+
+          <sly data-sly-test="${slide.linkUrl}">
+            <a href="${slide.linkUrl @ context='uri'}" target="${slide.linkTarget}">
+              <img src="${slide.imagePath}" alt="${slide.altText}" />
+            </a>
+          </sly>
+
+          <sly data-sly-test="${!slide.linkUrl}">
+            <img src="${slide.imagePath}" alt="${slide.altText}" />
+          </sly>
+
+          <sly data-sly-test="${slide.caption}">
+            <div class="my-carousel__caption">${slide.caption}</div>
+          </sly>
+        </li>
+      </sly>
+    </ul>
+
+    <button class="my-carousel__prev">‹</button>
+    <button class="my-carousel__next">›</button>
+
+    <div class="my-carousel__indicators"
+         data-sly-list.ind="${model.slides}">
+      <button data-slide="${ind.index}" class="my-carousel__indicator"></button>
+    </div>
+  </div>
+
+</sly>
+
 
 ### ClientLibs (CSS & JS)  
 - `styles.css` — base styles: carousel container, slides list, nav buttons, indicators.  
+
+.my-carousel {
+  position: relative;
+  overflow: hidden;
+}
+.my-carousel__slides {
+  display: flex;
+  transition: transform .5s;
+}
+.my-carousel__slide {
+  min-width: 100%;
+}
+.my-carousel__prev,
+.my-carousel__next {
+  position: absolute;
+  top: 50%;
+}
+
 - `carousel-init.js` — basic JavaScript to initialize the carousel behaviour (or integrate a library like Swiper/Slick if you prefer).  
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".js-carousel").forEach(carousel => {
+    // Basic slider logic or integrate Swiper/Slick here
+  });
+});
+
 - Ensure the clientlib category is included on the page where the component is used.
 
 ## Usage  
