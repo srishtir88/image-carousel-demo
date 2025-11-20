@@ -24,15 +24,16 @@
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
+  color: #000; /* solid black = WCAG safe */
 }
 
 .carousel-description {
   font-size: 1rem;
-  color: #555;
+  color: #333; /* higher contrast than #555 */
   margin-top: 5px;
 }
 
-/* Default: Desktop (2 slides) */
+/* Default layout */
 .carousel-slide {
   flex: 0 0 calc(50% - 8px);
   position: relative;
@@ -48,23 +49,39 @@
   border-radius: 12px;
 }
 
-/* Overlay */
+/* Accessible overlay */
 .slide-overlay {
   position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  bottom: 0;
+  left: 0;
+  width: 100%;         /* full width */
+  padding: 1rem;       /* respects slide padding */
+  box-sizing: border-box;
+  color: #fff;
+
+  /* Accessible contrast */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+
+  /* Ensure it sits above the image */
+  z-index: 2;
 }
 
+/* Text inside overlay */
 .slide-title {
   color: #fff;
-  margin: 0;
+  margin: 0 0 0.4rem 0;
   font-size: 2rem;
   text-align: center;
 }
 
+.slide-description {
+  color: #f2f2f2; /* better contrast than pure white */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Improve button contrast */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -72,10 +89,13 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.45);
+  
+  background: rgba(0, 0, 0, 0.75); /* stronger */
   color: #fff;
-  border: 2px rgba(255,255,255,0.5);
+  
+  border: 2px solid rgba(255,255,255,0.8); /* higher contrast outline */
   backdrop-filter: blur(4px);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,9 +103,16 @@
   z-index: 5;
 }
 
-/* Inside slide area */
-.carousel:hover .carousel-btn {
-  opacity: 1;
+.slide-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+/* Hover — full opacity */
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 /* Position */
@@ -98,36 +125,29 @@
 }
 
 /* ----------------------------------------
-   📱 Responsive Breakpoints
+   Responsive Breakpoints
 -----------------------------------------*/
 
-/* Medium Screens — Tablets (show 1.5 slides) */
+/* Tablets */
 @media (max-width: 900px) {
-  .carousel {
-    max-width: 100%;
-  }
-
   .carousel-slide {
-    flex: 0 0 calc(66.6% - 8px); /* 1.5 slides visible */
+    flex: 0 0 calc(66.6% - 8px);
     height: 350px;
   }
-
   .slide-title {
     font-size: 1.6rem;
   }
 }
 
-/* Small Screens — Large Mobile (show 1 slide) */
+/* Large mobile */
 @media (max-width: 600px) {
   .carousel-slide {
-    flex: 0 0 100%; /* 1 slide */
+    flex: 0 0 100%;
     height: 300px;
   }
-
   .slide-title {
     font-size: 1.4rem;
   }
-
   .carousel-btn {
     width: 38px;
     height: 38px;
@@ -135,12 +155,11 @@
   }
 }
 
-/* Extra Small Screens — small phones */
+/* Small phones */
 @media (max-width: 420px) {
   .carousel-slide {
     height: 250px;
   }
-
   .slide-title {
     font-size: 1.2rem;
   }
