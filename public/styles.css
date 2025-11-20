@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  overflow: hidden; /* keep slides inside container */
+  overflow: hidden;
   max-width: 900px;
   margin: auto;
   border-radius: 8px;
@@ -24,12 +24,12 @@
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
-  color: #000; /* solid black = WCAG safe */
+  color: #000;
 }
 
 .carousel-description {
   font-size: 1rem;
-  color: #333; /* higher contrast than #555 */
+  color: #333;
   margin-top: 5px;
 }
 
@@ -43,11 +43,11 @@
 }
 
 .carousel-slide.active {
-  transform: scale(1.02);              /* slight zoom to emphasize */
+  transform: scale(1.02);
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-  border: 3px solid #007BFF;          /* blue border */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* subtle shadow for depth */
-  z-index: 2;                          /* keep above other slides */
+  border: 3px solid #007BFF;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  z-index: 2;
 } 
 
 .carousel-slide img {
@@ -62,19 +62,14 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;         /* full width */
-  padding: 1rem;       /* respects slide padding */
+  width: 100%;
+  padding: 1rem;
   box-sizing: border-box;
   color: #fff;
-
-  /* Accessible contrast */
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
-
-  /* Ensure it sits above the image */
   z-index: 2;
 }
 
-/* Text inside overlay */
 .slide-title {
   color: #fff;
   margin: 0 0 0.4rem 0;
@@ -83,13 +78,12 @@
 }
 
 .slide-description {
-  color: #f2f2f2; /* better contrast than pure white */
+  color: #f2f2f2;
   font-size: 0.95rem;
   line-height: 1.5;
   text-align: center;
 }
 
-/* Improve button contrast */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -97,18 +91,15 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   border: 2px solid rgba(255,255,255,0.8);
   backdrop-filter: blur(4px);
-
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
-  z-index: 10; /* Make sure it's above slides */
+  z-index: 10;
 }
 
 .slide-link {
@@ -118,12 +109,10 @@
   height: 100%;
 }
 
-/* Hover — full opacity */
 .carousel-btn:hover {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* Position */
 .prev {
   left: 20px;
 }

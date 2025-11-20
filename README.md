@@ -76,17 +76,6 @@ public class Slide {
     // Default constructor for Sling Models
     public Slide() {}
 
-    // Optional: Constructor to build Slide manually from a Resource
-    public Slide(Resource resource) {
-        if (resource != null) {
-            this.imagePath = resource.getValueMap().get("imagePath", String.class);
-            this.altText = resource.getValueMap().get("altText", String.class);
-            this.caption = resource.getValueMap().get("caption", String.class);
-            this.linkUrl = resource.getValueMap().get("linkUrl", String.class);
-            this.linkTarget = resource.getValueMap().get("linkTarget", String.class);
-        }
-    }
-
     // Getters
     public String getImagePath() { return imagePath; }
     public String getAltText() { return altText; }
@@ -94,12 +83,6 @@ public class Slide {
     public String getLinkUrl() { return linkUrl; }
     public String getLinkTarget() { return linkTarget; }
 
-    // Setters (optional—only if you need them during unit testing)
-    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
-    public void setAltText(String altText) { this.altText = altText; }
-    public void setCaption(String caption) { this.caption = caption; }
-    public void setLinkUrl(String linkUrl) { this.linkUrl = linkUrl; }
-    public void setLinkTarget(String linkTarget) { this.linkTarget = linkTarget; }
 }
 
 - `ImageCarouselModel.java` — a Sling-style model that reads a “slides” child resource, iterates children, builds a `List<Slide>`, and exposes it for the HTL template.  
