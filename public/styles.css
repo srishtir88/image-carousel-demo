@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* keep slides inside container */
   max-width: 900px;
   margin: auto;
   border-radius: 8px;
@@ -41,6 +41,14 @@
   height: 400px;
   border-radius: 12px;
 }
+
+.carousel-slide.active {
+  transform: scale(1.02);              /* slight zoom to emphasize */
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  border: 3px solid #007BFF;          /* blue border */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* subtle shadow for depth */
+  z-index: 2;                          /* keep above other slides */
+} 
 
 .carousel-slide img {
   width: 100%;
@@ -90,17 +98,17 @@
   height: 48px;
   border-radius: 50%;
   
-  background: rgba(0, 0, 0, 0.75); /* stronger */
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
-  
-  border: 2px solid rgba(255,255,255,0.8); /* higher contrast outline */
+  border: 2px solid rgba(255,255,255,0.8);
   backdrop-filter: blur(4px);
 
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 5;
+
+  z-index: 10; /* Make sure it's above slides */
 }
 
 .slide-link {
