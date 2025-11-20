@@ -1,0 +1,21 @@
+[
+    {
+      "title": "Slide 1",
+      "description": "This is the first slide",
+      "imageUrl": "images/slide1.jpg",
+      "altText": "Beach scene with sale sign"
+    },
+    {
+      "title": "Slide 2",
+      "description": "This is the second slide",
+      "imageUrl": "images/slide2.jpg",
+      "altText": "Clothing display for new arrivals"
+    },
+    {
+      "title": "Slide 3",
+      "description": "This is the third slide",
+      "imageUrl": "images/slide3.jpg",
+      "altText": "Stack of clearance items"
+    }
+  ]
+  

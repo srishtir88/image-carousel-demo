@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Carousel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <!-- New Heading Section -->
+    <section class="carousel-heading">
+      <h1 class="carousel-title">Australia Featured Slides</h1>
+      <p class="carousel-description">Carousel implemented for Australia Feature Slides</p>
+    </section>
+
+    <section id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Promotional Content">
+      <div class="carousel-track" role="list">
+        <!-- Slide 1 -->
+        <div class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="Slide 1 of 3: Summer Sale">
+          <img src="images/slide1.jpg" alt="Beach scene with sale sign">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Australia Slide 1</h2>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="Slide 2 of 3: New Arrivals">
+          <img src="images/slide2.jpg" alt="Clothing display for new arrivals">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Australia Slide 2</h2>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="Slide 3 of 3: Clearance Items">
+          <img src="images/slide3.jpg" alt="Stack of clearance items">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Australia Slide 3</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button class="carousel-btn prev" aria-label="Previous Slide">&lt;</button>
+      <button class="carousel-btn next" aria-label="Next Slide">&gt;</button>
+    </section>
+  </main>
+
+  <script src="carousel.js"></script>
+</body>
+</html>
