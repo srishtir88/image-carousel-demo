@@ -65,7 +65,10 @@ public class Slide {
     private String altText;
 
     @ValueMapValue
-    private String caption;
+    private String title;
+
+    @ValueMapValue
+    private String description;
 
     @ValueMapValue
     private String linkUrl;
@@ -79,7 +82,8 @@ public class Slide {
     // Getters
     public String getImagePath() { return imagePath; }
     public String getAltText() { return altText; }
-    public String getCaption() { return caption; }
+    public String getTitle() { return title; }
+    public String getDescription() { return description; }
     public String getLinkUrl() { return linkUrl; }
     public String getLinkTarget() { return linkTarget; }
 
@@ -120,17 +124,20 @@ public class ImageCarouselModel {
         private String altText;
 
         @ValueMapValue
-        private String caption;
+        private String title;
+
+        @ValueMapValue
+        private String description;
 
         public ImageSlide(Resource resource) {
             this.fileReference = resource.getValueMap().get("fileReference", String.class);
             this.altText = resource.getValueMap().get("altText", String.class);
-            this.caption = resource.getValueMap().get("caption", String.class);
+            this.title = resource.getValueMap().get("title", String.class);
         }
 
         public String getFileReference() { return fileReference; }
         public String getAltText() { return altText; }
-        public String getCaption() { return caption; }
+        public String getTitle() { return title; }
     }
 }
 
