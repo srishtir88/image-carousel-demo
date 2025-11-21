@@ -68,13 +68,22 @@ main {
   border-radius: 12px;
 }
 
-.carousel-slide.active {
+/*.carousel-slide.active {
   transform: scale(1.02);
   transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
   border: 3px solid #007BFF;
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
   z-index: 2;
-} 
+} */
+
+.carousel-slide.active {
+  outline: 3px solid #4d90fe; /* visible focus ring */
+  outline-offset: 4px;
+}
+
+.carousel-slide:not(.active) {
+  outline: none;
+}
 
 .carousel-slide img {
   width: 100%;
